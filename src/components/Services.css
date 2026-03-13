@@ -1,0 +1,188 @@
+/* ══ Services.css — Terra Studio ═════════════════════════════════ */
+
+.services-header {
+    margin-bottom: 5.5rem;
+    text-align: left;
+}
+
+.services-main-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+.service-card-new {
+    background: var(--color-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 3rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 440px;
+    transition: var(--transition-smooth);
+    box-shadow: var(--shadow-sm);
+}
+
+.service-card-new:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    background: var(--color-bg);
+}
+
+.sc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+}
+
+.sc-icon-box {
+    width: 64px;
+    height: 64px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(44, 85, 48, 0.15);
+}
+
+.sc-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-text-light);
+    opacity: 0.15;
+    line-height: 0.8;
+}
+
+.sc-content {
+    flex: 1;
+}
+
+.sc-subtitle {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 0.6rem;
+}
+
+.sc-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    color: var(--color-text);
+}
+
+.sc-desc {
+    font-size: 0.95rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 2rem;
+    max-width: 90%;
+}
+
+.sc-features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.8rem 1rem;
+}
+
+.sc-feature {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.sc-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.sc-glow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* CTA Panel */
+.service-cta-panel {
+    background: var(--color-surface-dark);
+    border-radius: 30px;
+    padding: 6rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    color: #fff;
+}
+
+.service-cta-panel::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.panel-content {
+    position: relative;
+    z-index: 2;
+    max-width: 540px;
+}
+
+.panel-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 3.2rem;
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.panel-desc {
+    font-size: 1.1rem;
+    color: rgba(245, 242, 235, 0.7);
+    line-height: 1.7;
+    margin-bottom: 2.5rem;
+}
+
+.panel-visual {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 50%;
+    pointer-events: none;
+}
+
+.p-circle {
+    position: absolute;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+}
+
+@media (max-width: 1024px) {
+    .services-main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .service-cta-panel {
+        padding: 4rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .panel-visual {
+        display: none;
+    }
+}

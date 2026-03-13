@@ -1,0 +1,151 @@
+/* ══ Projects.css — Terra Studio ═════════════════════════════════ */
+
+.projects-header {
+    margin-bottom: 6rem;
+    text-align: left;
+}
+
+.projects-vertical-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.project-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.project-text.order-2 {
+    order: 2;
+}
+
+.project-visual-wrap.order-1 {
+    order: 1;
+}
+
+.p-num-mark {
+    font-family: 'Instrument Serif', serif;
+    font-size: 5rem;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--color-primary);
+    line-height: 0.8;
+    opacity: 0.12;
+    margin-bottom: 1.5rem;
+}
+
+.p-category {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    margin-bottom: 1.2rem;
+    display: block;
+}
+
+.p-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    letter-spacing: -0.02em;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.p-desc {
+    font-size: 1.05rem;
+    color: var(--color-text-muted);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+    max-width: 480px;
+}
+
+.p-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+/* Visual tilt area */
+.project-tilt-box {
+    width: 100%;
+    cursor: pointer;
+}
+
+.p-img-container {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    aspect-ratio: 4 / 3;
+    box-shadow: var(--shadow-xl);
+    background: var(--color-surface);
+}
+
+.p-img-parallax-wrapper {
+    width: 115%;
+    height: 115%;
+    margin: -7.5%;
+    will-change: transform;
+}
+
+.p-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.project-tilt-box:hover .p-img {
+    transform: scale(1.05);
+}
+
+.p-img-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Footer CTA */
+.projects-footer-cta {
+    padding: 6rem;
+    background: var(--color-surface);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+}
+
+.p-footer-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+}
+
+@media (max-width: 1024px) {
+    .project-grid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .project-text.order-2 {
+        order: 1;
+    }
+
+    .project-visual-wrap.order-1 {
+        order: 2;
+    }
+
+    .projects-vertical-list {
+        gap: 6rem;
+    }
+}

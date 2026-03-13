@@ -1,0 +1,388 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap');
+
+:root {
+  /* ══ TERRA STUDIO — deep forest, warm cream ══════════════════ */
+  --color-bg: #F5F2EB;
+  --color-surface: #EDE9DF;
+  --color-surface-2: #E3DDD1;
+  --color-surface-dark: #2C3A2C;
+
+  --color-text: #1A2018;
+  --color-text-muted: #6B7060;
+  --color-text-light: #9EA398;
+  --color-text-inv: #F5F2EB;
+
+  --color-primary: #2C5530;
+  /* deep forest green */
+  --color-primary-lt: #4A7C50;
+  /* medium green */
+  --color-primary-xlt: #A8C4A2;
+  /* soft sage */
+  --color-accent: #D4873F;
+  /* warm amber */
+  --color-accent-lt: #E8A96A;
+  /* lighter amber */
+  --color-accent-rose: #C4614A;
+  /* terracotta */
+  --color-success: #3D7A44;
+
+  --glass-bg: rgba(245, 242, 235, 0.85);
+  --glass-border: rgba(44, 85, 48, 0.14);
+  --glass-border-strong: rgba(44, 85, 48, 0.24);
+
+  --shadow-xs: 0 1px 3px rgba(26, 32, 24, 0.06);
+  --shadow-sm: 0 2px 8px rgba(26, 32, 24, 0.08), 0 1px 3px rgba(26, 32, 24, 0.04);
+  --shadow-md: 0 8px 24px rgba(26, 32, 24, 0.10), 0 2px 8px rgba(26, 32, 24, 0.05);
+  --shadow-lg: 0 24px 56px rgba(26, 32, 24, 0.14), 0 6px 16px rgba(26, 32, 24, 0.06);
+  --shadow-xl: 0 40px 80px rgba(26, 32, 24, 0.18), 0 12px 24px rgba(26, 32, 24, 0.08);
+
+  --grad-primary: linear-gradient(135deg, #2C5530, #D4873F);
+  --grad-green: linear-gradient(135deg, #2C5530, #4A7C50);
+  --grad-warm: linear-gradient(135deg, #D4873F, #C4614A);
+  --grad-subtle: linear-gradient(135deg, rgba(44, 85, 48, 0.1), rgba(212, 135, 63, 0.06));
+
+  /* standard smooth transition */
+  --transition-fast: all 0.2s cubic-bezier(0.2, 0, 0, 1);
+  --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Use translateZ to force hardware acceleration and 120fps capability */
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+
+  --text-secondary: var(--color-text-muted);
+  --accent-1: var(--color-primary);
+}
+
+/* ═══ LENIS SMOOTH SCROLL ════════════════════════════════════ */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* ─── Reset ─────────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--color-bg) !important;
+  min-height: 100%;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  color: var(--color-text);
+  overflow-x: hidden;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  /* Above background, below main UI */
+  pointer-events: none;
+}
+
+.container {
+  max-width: 1340px;
+  margin: 0 auto;
+  padding: 0 2.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.page {
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Gradient text ─────────────────────────────────────────── */
+.gradient-text {
+  background: var(--grad-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-green {
+  background: var(--grad-green);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ─── Section labels ────────────────────────────────────────── */
+.section-eyebrow {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  display: block;
+  opacity: 0.85;
+}
+
+.section-title {
+  font-family: 'Instrument Serif', serif;
+  font-size: clamp(2.4rem, 5vw, 4.5rem);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--color-text);
+}
+
+.body-text {
+  font-size: 1.05rem;
+  color: var(--color-text-muted);
+  line-height: 1.85;
+}
+
+/* ─── Service tag ───────────────────────────────────────────── */
+.service-tag {
+  background: rgba(44, 85, 48, 0.08);
+  padding: 0.3rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(44, 85, 48, 0.18);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  letter-spacing: 0.02em;
+}
+
+/* ─── Ticker ────────────────────────────────────────────────── */
+.logo-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding: 3rem 0;
+  background: var(--color-surface);
+  border-top: 1px solid var(--glass-border);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1;
+  display: flex;
+}
+
+.logo-ticker::before,
+.logo-ticker::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 160px;
+  height: 100%;
+  z-index: 2;
+}
+
+.logo-ticker::before {
+  left: 0;
+  background: linear-gradient(to right, var(--color-surface), transparent);
+}
+
+.logo-ticker::after {
+  right: 0;
+  background: linear-gradient(to left, var(--color-surface), transparent);
+}
+
+.logo-track {
+  display: inline-flex;
+  animation: logo-scroll 28s linear infinite;
+  gap: 3.5rem;
+}
+
+.logo-item {
+  font-size: 0.8rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--color-text-muted);
+  letter-spacing: 0.05em;
+}
+
+.logo-item:hover {
+  color: var(--color-primary);
+}
+
+.logo-icon-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid;
+  flex-shrink: 0;
+}
+
+@keyframes logo-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+/* ─── Forms ─────────────────────────────────────────────────── */
+.form-input {
+  width: 100%;
+  padding: 0.9rem 1.2rem;
+  border-radius: 10px;
+  border: 1.5px solid var(--glass-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-size: 0.93rem;
+  font-family: 'Inter', sans-serif;
+  outline: none;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.form-input::placeholder {
+  color: var(--color-text-light);
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(44, 85, 48, 0.1);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.form-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+}
+
+/* ─── Grids ─────────────────────────────────────────────────── */
+.cap-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+}
+
+.section-pad {
+  padding: 8rem 0;
+}
+
+/* ─── Process cards ─────────────────────────────────────────── */
+.process-step {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  transition: var(--transition-smooth);
+  border: 1px solid var(--glass-border);
+}
+
+.process-step:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+  background: var(--color-bg) !important;
+}
+
+.step-number {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 5rem;
+  font-weight: 700;
+  color: rgba(44, 85, 48, 0.06);
+  line-height: 1;
+  pointer-events: none;
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
+}
+
+/* ─── Functional ────────────────────────────────────────────── */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(44, 85, 48, 0.25);
+  border-top-color: var(--color-primary);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.success-box {
+  background: var(--color-primary);
+  color: #fff;
+  padding: 1rem 2rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 0.88rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+
+/* ─── Responsive ────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .cap-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+
+  .cap-grid {
+    grid-template-columns: 1fr;
+  }
+}

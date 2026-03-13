@@ -1,0 +1,683 @@
+/* ══ Hero.css — Terra Studio ════════════════════════════════════ */
+
+/* ─── Hero root — SPLIT LAYOUT ───────────────────────────────── */
+.hero-wrap {
+    position: relative;
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 100px;
+}
+
+/* Blobs */
+.hero-blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(60px);
+    pointer-events: none;
+    opacity: 0.6;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.blob-1 {
+    width: 600px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(44, 85, 48, 0.18) 0%, rgba(212, 135, 63, 0.10) 60%, transparent 75%);
+    top: -80px;
+    right: 0;
+    animation: blob-drift 14s ease-in-out infinite;
+}
+
+.blob-2 {
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(212, 135, 63, 0.12) 0%, rgba(44, 85, 48, 0.08) 60%, transparent 75%);
+    bottom: -60px;
+    left: 0;
+    animation: blob-drift 10s ease-in-out infinite reverse;
+}
+
+@keyframes blob-drift {
+
+    0%,
+    100% {
+        transform: translate(0, 0) scale(1);
+    }
+
+    33% {
+        transform: translate(30px, -25px) scale(1.05);
+    }
+
+    66% {
+        transform: translate(-20px, 20px) scale(0.97);
+    }
+}
+
+/* ─── CREATIVE SHAPES ────────────────────────────────────────── */
+.hero-creative-shapes {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 1;
+    will-change: transform;
+}
+
+.c-shape {
+    position: absolute;
+    border: 1px solid rgba(44, 85, 48, 0.15);
+    pointer-events: none;
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+.c-sq-1 {
+    width: 250px;
+    height: 350px;
+    top: 15%;
+    left: 5%;
+    transform: rotate(15deg);
+    border-color: rgba(44, 85, 48, 0.05);
+    /* Softened from 0.1 */
+}
+
+.c-sq-2 {
+    width: 180px;
+    height: 180px;
+    bottom: 25%;
+    right: 15%;
+    border-color: rgba(212, 135, 63, 0.06);
+    /* Softened from 0.12 */
+}
+
+.c-line-1 {
+    width: 1px;
+    height: 400px;
+    top: -5%;
+    left: 10%;
+    /* Moved from 45% (center) to the left */
+    background: linear-gradient(to bottom, rgba(44, 85, 48, 0.08), transparent);
+    /* Softened from 0.15 */
+    border: none;
+}
+
+.c-line-2 {
+    width: 300px;
+    height: 1px;
+    bottom: 15%;
+    left: 5%;
+    background: linear-gradient(to right, rgba(212, 135, 63, 0.05), transparent);
+    /* Softened from 0.1 */
+    border: none;
+}
+
+/* ─── LEFT PANEL ─────────────────────────────────────────────── */
+.hero-left {
+    position: relative;
+    z-index: 2;
+    padding: 5rem 4rem 5rem 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* ─── RIGHT PANEL ────────────────────────────────────────────── */
+.hero-right {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 5rem 0 5rem 3rem;
+}
+
+
+
+/* ─── Pill ───────────────────────────────────────────────────── */
+.hero-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    padding: 7px 14px;
+    background: rgba(44, 85, 48, 0.08);
+    border: 1px solid rgba(44, 85, 48, 0.2);
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: 2.5rem;
+    width: fit-content;
+}
+
+/* ─── Wordmark ───────────────────────────────────────────────── */
+.hero-wordmark {
+    display: block;
+    line-height: 0.88;
+    letter-spacing: -0.04em;
+    margin-bottom: 2rem;
+}
+
+.wm-canvas {
+    display: inline-block;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(4rem, 7vw, 9rem);
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-text);
+    will-change: transform, opacity;
+}
+
+.wm-theory {
+    display: inline-block;
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(4rem, 7vw, 9rem);
+    font-weight: 400;
+    font-style: italic;
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
+    padding-right: 0.1em;
+    margin-right: -0.1em;
+    will-change: transform, opacity;
+}
+
+/* ─── Tagline & actions ──────────────────────────────────────── */
+.hero-sub {
+    font-size: 1.69rem;
+    color: var(--color-text-muted);
+    font-weight: 400;
+    line-height: 1.8;
+    max-width: 480px;
+    margin-bottom: 2.8rem;
+}
+
+.hero-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    margin-bottom: 3.5rem;
+}
+
+/* ─── Inline stats ───────────────────────────────────────────── */
+.hero-stats {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--glass-border);
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.stat-item-num {
+    font-family: 'Instrument Serif', serif;
+    font-size: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1;
+    background: var(--grad-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-item-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+/* ─── Right visual stack ─────────────────────────────────────── */
+.hero-visual-stack {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    height: 580px;
+}
+
+.visual-card {
+    position: absolute;
+    background: var(--color-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    padding: 2.2rem;
+    transition: box-shadow 0.4s ease;
+}
+
+.visual-card:hover {
+    box-shadow: 0 40px 80px -15px rgba(44, 85, 48, 0.2), 0 20px 40px -20px rgba(0, 0, 0, 0.15);
+}
+
+.vc-main {
+    width: 340px;
+    top: 40px;
+    left: 50%;
+    margin-left: -170px;
+    /* Center horizontally */
+    background: var(--color-bg);
+    z-index: 3;
+}
+
+.vc-back-1 {
+    width: 320px;
+    top: 20px;
+    left: 50%;
+    margin-left: -160px;
+    background: var(--color-surface);
+    z-index: 2;
+    opacity: 0.9;
+}
+
+.vc-back-2 {
+    width: 300px;
+    top: -10px;
+    left: 50%;
+    margin-left: -150px;
+    background: var(--color-surface-2);
+    z-index: 1;
+    opacity: 0.75;
+}
+
+/* Inner card content */
+.vc-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.2rem;
+}
+
+.vc-dot-row {
+    display: flex;
+    gap: 5px;
+}
+
+.vc-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.vc-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: var(--color-text-light);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.vc-title {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-bottom: 0.6rem;
+}
+
+.vc-desc {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+}
+
+.vc-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.vc-tag {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    border: 1px solid var(--glass-border);
+    background: var(--color-surface);
+    color: var(--color-text-muted);
+}
+
+.vc-stats-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.75rem;
+    margin-top: 1rem;
+}
+
+.vc-stat-box {
+    background: rgba(44, 85, 48, 0.06);
+    border-radius: 10px;
+    padding: 0.8rem;
+    text-align: center;
+}
+
+.vc-stat-n {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    line-height: 1;
+}
+
+.vc-stat-l {
+    font-size: 0.65rem;
+    color: var(--color-text-light);
+    font-weight: 600;
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+}
+
+/* Floating badge */
+.vc-badge {
+    position: absolute;
+    bottom: -24px;
+    right: -20px;
+    background: var(--color-primary);
+    color: #fff;
+    padding: 0.9rem 1.4rem;
+    border-radius: 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    box-shadow: var(--shadow-md);
+    line-height: 1.4;
+    z-index: 10;
+}
+
+/* ─── Capabilities ───────────────────────────────────────────── */
+.cap-card {
+    background: var(--color-surface);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-xs);
+    transition: var(--transition-smooth);
+    cursor: default;
+}
+
+.cap-card:hover {
+    transform: translateY(-7px);
+    box-shadow: var(--shadow-lg);
+    background: var(--color-bg);
+}
+
+.cap-icon-box {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.4rem;
+    transition: transform 0.3s ease;
+}
+
+.cap-card:hover .cap-icon-box {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.cap-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    color: var(--color-text);
+}
+
+.cap-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+}
+
+.cap-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 3px;
+    width: 0;
+    transition: width 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cap-card:hover .cap-bar {
+    width: 100%;
+}
+
+/* ─── Philosophy ─────────────────────────────────────────────── */
+.philosophy-bg {
+    background: var(--color-surface-dark);
+    color: var(--color-text-inv);
+    border-radius: 28px;
+    margin: 0 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.philosophy-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.philosophy-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 7rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+}
+
+.philosophy-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.philo-card {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 16px;
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.philo-card:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(8px);
+}
+
+.philo-bar {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+}
+
+.philo-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+    color: #fff;
+}
+
+.philo-card p {
+    font-size: 0.9rem;
+    color: rgba(245, 242, 235, 0.65);
+    line-height: 1.65;
+}
+
+/* ─── Testimonials ───────────────────────────────────────────── */
+.testi-section {
+    background: var(--color-surface);
+    border-top: 1px solid var(--glass-border);
+    border-bottom: 1px solid var(--glass-border);
+}
+
+.testi-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.testi-card {
+    background: var(--color-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 18px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition-smooth);
+}
+
+.testi-card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-lg);
+}
+
+.testi-accent {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--grad-primary);
+}
+
+.testi-quote {
+    font-family: 'Instrument Serif', serif;
+    font-size: 1.05rem;
+    font-style: italic;
+    line-height: 1.75;
+    color: var(--color-text);
+    margin-bottom: 2rem;
+}
+
+.testi-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--color-text);
+    display: block;
+}
+
+.testi-role {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--color-primary);
+    opacity: 0.8;
+    display: block;
+    margin-top: 2px;
+}
+
+/* ─── CTA ────────────────────────────────────────────────────── */
+.cta-wrap {
+    text-align: center;
+    background: var(--color-surface-dark);
+    border-radius: 28px;
+    padding: 8rem 4rem;
+    position: relative;
+    overflow: hidden;
+    color: var(--color-text-inv);
+}
+
+.cta-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.cta-blob {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 700px;
+    height: 300px;
+    background: radial-gradient(ellipse, rgba(44, 85, 48, 0.35) 0%, rgba(212, 135, 63, 0.18) 50%, transparent 70%);
+    pointer-events: none;
+    animation: blob-drift 8s ease-in-out infinite;
+}
+
+.cta-headline {
+    font-family: 'Instrument Serif', serif;
+    font-size: clamp(2.5rem, 5vw, 5.5rem);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 2;
+    color: #fff;
+}
+
+.cta-headline .gradient-text {
+    background: linear-gradient(135deg, #A8C4A2, #E8A96A);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ─── Responsive ─────────────────────────────────────────────── */
+@media (max-width: 1100px) {
+    .hero-wrap {
+        grid-template-columns: 1fr;
+        padding-top: 120px;
+    }
+
+    .hero-right {
+        display: none;
+    }
+
+    .hero-left {
+        padding: 4rem 0;
+    }
+
+    .testi-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .philosophy-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+    }
+
+    .philosophy-bg {
+        margin: 0 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .testi-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+        gap: 1.5rem;
+    }
+
+    .cta-wrap {
+        padding: 5rem 2rem;
+    }
+}

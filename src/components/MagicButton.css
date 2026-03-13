@@ -1,0 +1,137 @@
+/* ══ MagicButton.css — Terra Studio ══════════════════════════════ */
+/* Base Button */
+.magic-btn-outer {
+    display: inline-block;
+    perspective: 1000px;
+}
+
+.magic-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px 28px;
+    border-radius: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-decoration: none;
+    cursor: pointer;
+    overflow: hidden;
+    /* Keep ripples inside */
+    transition: background 0.3s, color 0.3s, border-color 0.3s;
+    border: none;
+    background: none;
+}
+
+.magic-inner-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let events pass to the outer button for tracking */
+}
+
+/* ─── Variants ───────────────────────────────────────────────── */
+
+/* PRIMARY: Forest Green to Amber Gradient */
+.magic-btn-primary {
+    background: var(--grad-primary);
+    color: #fff;
+    box-shadow: 0 4px 20px rgba(44, 85, 48, 0.25);
+}
+
+.magic-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(44, 85, 48, 0.35);
+    opacity: 0.92;
+}
+
+.magic-btn-primary:active {
+    transform: translateY(0);
+}
+
+/* DARK: Deep Charcoal Green */
+.magic-btn-dark {
+    background: var(--color-surface-dark);
+    color: #fff;
+    box-shadow: 0 4px 14px rgba(26, 32, 24, 0.15);
+}
+
+.magic-btn-dark:hover {
+    transform: translateY(-2px);
+    background: #1A251A;
+    box-shadow: 0 8px 25px rgba(26, 32, 24, 0.25);
+}
+
+/* OUTLINE: Sage border */
+.magic-btn-outline {
+    background: transparent;
+    color: var(--color-primary);
+    border: 1.5px solid var(--color-primary-lt);
+}
+
+.magic-btn-outline:hover {
+    background: rgba(44, 85, 48, 0.06);
+    transform: translateY(-2px);
+    border-color: var(--color-primary);
+}
+
+/* ─── Elements ───────────────────────────────────────────────── */
+
+.btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.magic-btn:hover .btn-icon {
+    transform: translateX(4px);
+}
+
+.btn-shimmer {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent);
+    transform: skewX(-20deg);
+    transition: none;
+}
+
+.magic-btn:hover .btn-shimmer {
+    animation: btn-shimmer 1s forwards;
+}
+
+@keyframes btn-shimmer {
+    100% {
+        left: 150%;
+    }
+}
+
+/* ─── Sizes ──────────────────────────────────────────────────── */
+.magic-btn-sm {
+    padding: 10px 20px;
+    font-size: 0.82rem;
+    border-radius: 9px;
+}
+
+.magic-btn-lg {
+    padding: 18px 36px;
+    font-size: 1.1rem;
+    border-radius: 14px;
+}
+
+/* ─── Utils ──────────────────────────────────────────────────── */
+.magic-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    pointer-events: none;
+}
