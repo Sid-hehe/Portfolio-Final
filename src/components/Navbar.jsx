@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useSpring, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Home, BriefcaseBusiness, FolderOpen, Mail } from 'lucide-react';
 import './Navbar.css';
 
@@ -86,11 +86,11 @@ const Navbar = () => {
     const [hoveredIdx, setHoveredIdx] = useState(null);
     const location = useLocation();
 
-    useEffect(() => {
-        const onScroll = () => setScrolled(window.scrollY > 120);
-        window.addEventListener('scroll', onScroll, { passive: true });
-        return () => window.removeEventListener('scroll', onScroll);
-    }, []);
+    const { scrollY } = useScroll();
+
+    useMotionValueEvent(scrollY, "change", (latest) => {
+        setScrolled(latest > 120);
+    });
 
     return (
         <>
@@ -102,7 +102,7 @@ const Navbar = () => {
                         key="topnav"
                         initial={{ y: -80, opacity: 0 }}
                         animate={{ y: 0, opacity: 1 }}
-                        exit={{ y: -40, opacity: 0, transition: { duration: 0.3, ease: 'easeIn' } }}
+                        exit={{ x: -100, opacity: 0, transition: { duration: 0.3, ease: 'easeIn' } }}
                         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                     >
                         <div className="container nav-inner">
