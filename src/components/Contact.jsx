@@ -111,10 +111,10 @@ const Contact = () => {
                                 <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1rem' }}>
                                     We are currently taking on new projects. We aim to respond to all inquiries within <span style={{ color: 'var(--color-text)', fontWeight: '500' }}>24-48 hours</span>.
                                 </p>
-                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: 'rgba(44, 85, 48, 0.05)', border: '1px solid rgba(44, 85, 48, 0.1)', borderRadius: '99px', fontSize: '0.8rem', fontWeight: '600', color: '#2C5530' }}>
+                                {/* <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: 'rgba(44, 85, 48, 0.05)', border: '1px solid rgba(44, 85, 48, 0.1)', borderRadius: '99px', fontSize: '0.8rem', fontWeight: '600', color: '#2C5530' }}>
                                     <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2C5530', display: 'inline-block' }}></span>
                                     Available Now
-                                </div>
+                                </div> */}
                             </div>
                         </ScrollReveal>
                     </div>
