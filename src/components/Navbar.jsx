@@ -108,6 +108,9 @@ const Navbar = () => {
                         <div className="container nav-inner">
                             {/* Brand */}
                             <Link to="/" className="nav-brand">
+                                <div className="brand-logo-wrap">
+                                    <img src="/canvas-theory-favicon.svg" alt="Canvas Theory Logo" className="brand-icon" />
+                                </div>
                                 <span className="brand-canvas">Canvas</span>
                                 <span className="brand-sep">·</span>
                                 <span className="brand-theory">Theory</span>
