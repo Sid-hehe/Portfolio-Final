@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, MessageSquare, Phone, MapPin, Send, Instagram, Twitter, Linkedin, ArrowRight, Sparkles } from 'lucide-react';
+import { Mail, MessageSquare, Phone, MapPin, Send, Instagram, Linkedin, Sparkles, Clock } from 'lucide-react';
 import { useState } from 'react';
 import MagicButton from './MagicButton';
 import ScrollReveal from './ScrollReveal';
@@ -7,7 +7,21 @@ import './Contact.css';
 
 const contactInfo = [
     { icon: <Mail size={22} />, label: 'Email', val: 'canvastheoryy@gmail.com', color: '#2C5530' },
-    { icon: <MessageSquare size={22} />, label: 'Social', val: '@canvastheory', color: '#D4873F' },
+    { 
+        icon: <MessageSquare size={22} />, 
+        label: 'Social', 
+        val: (
+            <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.6rem', marginTop: '0.5rem' }}>
+                <a href="https://www.instagram.com/canvas._.theory/" target="_blank" rel="noopener noreferrer" className="social-pill">
+                    <Instagram size={16} /> Instagram
+                </a>
+                <a href="https://www.linkedin.com/in/canvastheory/" target="_blank" rel="noopener noreferrer" className="social-pill">
+                    <Linkedin size={16} /> LinkedIn
+                </a>
+            </div>
+        ), 
+        color: '#D4873F' 
+    },
     { icon: <MapPin size={22} />, label: 'Location', val: 'Global / Remote', color: '#C4614A' },
 ];
 
@@ -77,24 +91,29 @@ const Contact = () => {
                                         </div>
                                         <div className="ii-tex-wrap">
                                             <span className="ii-label">{info.label}</span>
-                                            <p className="ii-val">{info.val}</p>
+                                            <div className="ii-val">{info.val}</div>
                                         </div>
-                                        <div className="ii-arrow">
-                                            <ArrowRight size={18} />
-                                        </div>
+                                        {/* Arrow removed as requested */}
                                     </div>
                                 </ScrollReveal>
                             ))}
                         </div>
 
-                        {/* Social Links */}
+                        {/* Availability Block to fill space */}
                         <ScrollReveal delay={0.4} direction="up" style={{ marginTop: '3.5rem' }}>
-                            <div className="social-row">
-                                <span className="social-label">Follow Us</span>
-                                <div className="social-icons">
-                                    <a href="#" className="s-icon"><Instagram size={20} /></a>
-                                    <a href="#" className="s-icon"><Twitter size={20} /></a>
-                                    <a href="#" className="s-icon"><Linkedin size={20} /></a>
+                            <div className="availability-card" style={{ padding: '2rem', background: 'var(--color-surface)', borderRadius: '20px', border: '1px solid var(--glass-border)' }}>
+                                <div style={{ display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '1rem' }}>
+                                    <div style={{ padding: '8px', background: 'rgba(44, 85, 48, 0.1)', color: '#2C5530', borderRadius: '10px' }}>
+                                        <Clock size={20} />
+                                    </div>
+                                    <h3 style={{ fontSize: '1.1rem', fontWeight: '600' }}>Current Status</h3>
+                                </div>
+                                <p style={{ color: 'var(--color-text-muted)', fontSize: '0.95rem', lineHeight: '1.6', marginBottom: '1rem' }}>
+                                    We are currently taking on new projects. We aim to respond to all inquiries within <span style={{ color: 'var(--color-text)', fontWeight: '500' }}>24-48 hours</span>.
+                                </p>
+                                <div style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '6px 12px', background: 'rgba(44, 85, 48, 0.05)', border: '1px solid rgba(44, 85, 48, 0.1)', borderRadius: '99px', fontSize: '0.8rem', fontWeight: '600', color: '#2C5530' }}>
+                                    <span style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#2C5530', display: 'inline-block' }}></span>
+                                    Available Now
                                 </div>
                             </div>
                         </ScrollReveal>
