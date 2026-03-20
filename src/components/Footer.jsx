@@ -1,5 +1,5 @@
 import React from 'react';
-import { Facebook, Linkedin, Instagram, Dribbble, Twitter } from 'lucide-react';
+import { Linkedin, Instagram, Dribbble, Twitter } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import './Footer.css';
 
@@ -15,9 +15,8 @@ const Footer = () => {
                         A boutique design house crafting high-performance digital experiences where strategy meets refined aesthetics.
                     </p>
                     <div className="footer-socials">
-                        <a href="#" className="social-link" aria-label="Facebook"><Facebook size={18} /></a>
-                        <a href="#" className="social-link" aria-label="LinkedIn"><Linkedin size={18} /></a>
-                        <a href="#" className="social-link" aria-label="Instagram"><Instagram size={18} /></a>
+                        <a href="https://www.linkedin.com/in/canvastheory/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="LinkedIn"><Linkedin size={18} /></a>
+                        <a href="https://www.instagram.com/canvas._.theory/" target="_blank" rel="noopener noreferrer" className="social-link" aria-label="Instagram"><Instagram size={18} /></a>
                     </div>
                 </div>
 
